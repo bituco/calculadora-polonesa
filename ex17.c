@@ -35,3 +35,12 @@
 #include <malloc.h>
 #include "ex17.h"
 
+void pop();
+void push();
+
+int main(void)
+{
+
+    return 0;
+}
+
