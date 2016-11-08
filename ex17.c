@@ -23,6 +23,9 @@
  *    Marina Collier de Albuquerque Melo <marinacollieramelo@gmail.com      *
  *    Webpage: http://www.poli.com                                          *
  *    Phone: 55 81 994923617                                                *
+ *                                                                          *
+ *    Fernando Angelim Aragão <bituco99@gmail.com>                          *
+ *    phone: 55 81 997107784                                                *
  * ************************************************************************ *
  * 
  */
