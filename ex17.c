@@ -30,17 +30,61 @@
  * 
  */
 
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <malloc.h>
-#include "ex17.h"
 
-void pop();
-void push();
+typedef struct st_lst                           // Definindo um tipo de variavel "string"
+{                                               // 
+    char c;                                     // Unico valor da lista, do tipo char
+    struct st_lst *prox;                        // Ponteiro da lista, apontando para o proximo
+}lista;     
 
-int main(void)
+void push(lista **cabeca, char x);
+int pop(lista **cabeca);
+
+int main(void)                                  
+{                                                
+    string **f = malloc(sizeof(string)),        
+           *p = *f,                             
+           *pa = *f;                            
+    char *x="34+",                   
+         *pc = x;                               
+
+    printf("Digite a equacao\n");
+    while(*pc!='\0')
+    { 
+        switch (*pc)
+        {
+            case '+':
+                break;
+
+            case '-':
+                break;
+
+            case '*':
+                break;
+
+            case '/':
+                break;
+
+            default
+                push(*pc);
+        }
+
+    pc++; 
+    }                                           
+    printf("\n");                               
+    return 0;                                   
+}            
+
+void push(char *pc)
 {
-
-    return 0;
+    p = malloc(sizeof(string));             // p passa a apontar para uma nova regiao da memoria com o novo elemento da lista
+    p->c = *pc;                             // Esse novo elemento vai ter como valor o valor atual do ponteiro pc
+    p->prox = NULL;                         // 
+    if(pa != NULL)                          // Se a lista nao estiver vazia,
+        pa->prox = p;                       // 
+    else                                    // Caso contrario,
+        *f = p;                             // 
 }
-
