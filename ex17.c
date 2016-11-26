@@ -54,6 +54,12 @@ int main(void)
 
     printf("Digite a equacao\n");
 
+    while((c=getch)!='\n' && c!='\0')
+    {
+        str = (char *) realloc(str, strlen(str)+sizeof(char));
+        *(str + i*sizeof(char)) = c;
+    }
+
     while(*pc!='\0')
     { 
         switch (*pc)
