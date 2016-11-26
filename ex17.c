@@ -50,7 +50,10 @@ int main(void)
     char *pc, a, c, str*=NULL;
     int i=0;
 
+    str = (char *) malloc(sizeof(char));
+
     printf("Digite a equacao\n");
+
     while(*pc!='\0')
     { 
         switch (*pc)
