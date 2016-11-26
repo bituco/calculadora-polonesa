@@ -45,11 +45,10 @@ int pop(lista **cabeca);
 
 int main(void)                                  
 {                                                
-    string **f = malloc(sizeof(string)),        
-           *p = *f,                             
-           *pa = *f;                            
-    char *x="34+",                   
-         *pc = x;                               
+
+    lista *l=NULL;
+    char *pc, a, c, str*=NULL;
+    int i=0;
 
     printf("Digite a equacao\n");
     while(*pc!='\0')
