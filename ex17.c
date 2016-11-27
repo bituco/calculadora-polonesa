@@ -37,11 +37,12 @@
 
 typedef struct st_lst                           // Definindo um tipo de variavel "string"
 {                                               // 
-    char c;                                     // Unico valor da lista, do tipo char
+    int c;                                     // Unico valor da lista, do tipo char
     struct st_lst *prox;                        // Ponteiro da lista, apontando para o proximo
 }lista;     
 
-void push(lista **cabeca, char x);
+void disp(lista *s);
+void push(lista **cabeca, int x);
 int pop(lista **cabeca);
 
 int main(void)                                  
@@ -67,36 +68,51 @@ int main(void)
     pc = str;
 
     while(*pc!='\0')
-    { 
+    {
         switch (*pc)
         {
             case '+':
-                printf("+\n%d\n",pop(&l)+pop(&l));
+                printf("+\n%d\n",a=pop(&l)+pop(&l));
+                push(&l, a);
                 break;
 
             case '-':
-                printf("-\n%d\n",pop(&l)-pop(&l));
+                printf("-\n%d\n",a=pop(&l)-pop(&l));
+                push(&l, a);
                 break;
 
             case '*':
-                printf("*\n%d\n",pop(&l)*pop(&l));
+                printf("*\n%d\n",a=pop(&l)*pop(&l));
+                push(&l, a);
                 break;
 
             case '/':
-                printf("/\n%d\n",pop(&l)/pop(&l));
+                printf("/\n%d\n",a=pop(&l)/pop(&l));
+                push(&l, a);
                 break;
 
             default:
-                push(&l, *pc);
+                push(&l, *pc-'0');
         }
 
+        disp(l);
         pc++; 
     }                                           
     printf("\n");                               
     return 0;                                   
 }            
+void disp(lista *s)
+{
+    lista *p = s;
+    while(p!=NULL)
+    {
+        printf("%d ",p->c);
+        p=p->prox;
+    }
+    printf("\n");
 
-void push(lista **cabeca, char x)
+}
+void push(lista **cabeca, int x)
 {
     lista *pl=*cabeca;
     lista *plant=NULL;
@@ -120,16 +136,19 @@ int pop(lista **cabeca)
 {
     lista *pl=*cabeca;
     lista *plant=NULL;
-    char x;
+    int x;
 
     while(pl->prox!=NULL)
     {
         plant=pl;
         pl=pl->prox;
     }
+    if(plant!=NULL)
+        plant->prox=NULL;
+    else
+        *cabeca=NULL;
     
-    x = pl->c-'0';
-    plant->prox=NULL;
+    x = pl->c;
     free(pl);
     
     return x;
