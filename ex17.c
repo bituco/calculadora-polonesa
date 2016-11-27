@@ -75,6 +75,8 @@ int main(void)
                 break;
 
             case '-':
+                printf("-\n");
+                printf("%d",pop(*l)-pop(*l));
                 break;
 
             case '*':
