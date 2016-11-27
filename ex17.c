@@ -82,6 +82,7 @@ int main(void)
                 break;
 
             case '/':
+                printf("/\n%d\n",pop(*l)/pop(*l));
                 break;
 
             default
