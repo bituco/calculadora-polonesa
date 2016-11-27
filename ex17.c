@@ -100,6 +100,7 @@ void push(lista **cabeca, char x)
 {
     lista *pl=*cabeca;
     lista *plant=NULL;
+    
     while(pl!=NULL)
     {
         plant=pl;
@@ -108,12 +109,7 @@ void push(lista **cabeca, char x)
     pl=malloc(sizeof(lista));
     pl->c=x;
     pl->prox=NULL;
-    if(plant!=NULL)
-        plant->prox=pl;
-    else
-        pl=malloc(sizeof(lista));
-    pl->c=x;
-    pl->prox=NULL;
+    
     if(plant!=NULL)
         plant->prox=pl;
     else
@@ -131,8 +127,10 @@ int pop(lista **cabeca)
         plant=pl;
         pl=pl->prox;
     }
+    
     x = pl->c-'0';
     plant->prox=NULL;
     free(pl);
+    
     return x;
 }
