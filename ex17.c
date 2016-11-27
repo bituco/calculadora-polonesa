@@ -47,7 +47,7 @@ int main(void)
 {                                                
 
     lista *l=NULL;
-    char *pc, a, c, str*=NULL;
+    char *pc, a, c, *str=NULL;
     int i=0;
 
     str = (char *) malloc(sizeof(char));
@@ -86,22 +86,35 @@ int main(void)
                 break;
 
             default
-                push(*pc);
+                push(&l, *pc);
         }
 
-    pc++; 
+        pc++; 
     }                                           
     printf("\n");                               
     return 0;                                   
 }            
 
-void push(char *pc)
+void push(lista **cabeca, char x)
 {
-    p = malloc(sizeof(string));             // p passa a apontar para uma nova regiao da memoria com o novo elemento da lista
-    p->c = *pc;                             // Esse novo elemento vai ter como valor o valor atual do ponteiro pc
-    p->prox = NULL;                         // 
-    if(pa != NULL)                          // Se a lista nao estiver vazia,
-        pa->prox = p;                       // 
-    else                                    // Caso contrario,
-        *f = p;                             // 
+    lista *pl=*cabeca;
+    lista *plant=NULL;
+    while(pl!=NULL)
+    {
+        plant=pl;
+        pl=pl->prox;
+    }
+    pl=malloc(sizeof(lista));
+    pl->c=x;
+    pl->prox=NULL;
+    if(plant!=NULL)
+        plant->prox=pl;
+    else
+        pl=malloc(sizeof(lista));
+    pl->c=x;
+    pl->prox=NULL;
+    if(plant!=NULL)
+        plant-prox=pl;
+    else
+        *cabeca=pl;
 }
