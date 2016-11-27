@@ -70,6 +70,8 @@ int main(void)
         switch (*pc)
         {
             case '+':
+                printf("+\n");
+                printf("%d\n",pop(*l)+pop(*l));
                 break;
 
             case '-':
