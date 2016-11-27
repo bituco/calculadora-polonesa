@@ -58,7 +58,12 @@ int main(void)
     {
         str = (char *) realloc(str, strlen(str)+sizeof(char));
         *(str + i*sizeof(char)) = c;
+        i++
     }
+
+    *(str + i * sizeof(char)) = '\0';
+
+    pc = str;
 
     while(*pc!='\0')
     { 
