@@ -33,6 +33,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct st_lst                           // Definindo um tipo de variavel "string"
 {                                               // 
@@ -54,11 +55,11 @@ int main(void)
 
     printf("Digite a equacao\n");
 
-    while((c=getch)!='\n' && c!='\0')
+    while((c=getchar())!='\n' && c!='\0')
     {
         str = (char *) realloc(str, strlen(str)+sizeof(char));
         *(str + i*sizeof(char)) = c;
-        i++
+        i++;
     }
 
     *(str + i * sizeof(char)) = '\0';
@@ -85,7 +86,7 @@ int main(void)
                 printf("/\n%d\n",pop(*l)/pop(*l));
                 break;
 
-            default
+            default:
                 push(&l, *pc);
         }
 
@@ -114,7 +115,7 @@ void push(lista **cabeca, char x)
     pl->c=x;
     pl->prox=NULL;
     if(plant!=NULL)
-        plant-prox=pl;
+        plant->prox=pl;
     else
         *cabeca=pl;
 }
