@@ -71,19 +71,19 @@ int main(void)
         switch (*pc)
         {
             case '+':
-                printf("+\n%d\n",pop(*l)+pop(*l));
+                printf("+\n%d\n",pop(&l)+pop(&l));
                 break;
 
             case '-':
-                printf("-\n%d\n",pop(*l)-pop(*l));
+                printf("-\n%d\n",pop(&l)-pop(&l));
                 break;
 
             case '*':
-                printf("*\n%d\n",pop(*l)*pop(*l));
+                printf("*\n%d\n",pop(&l)*pop(&l));
                 break;
 
             case '/':
-                printf("/\n%d\n",pop(*l)/pop(*l));
+                printf("/\n%d\n",pop(&l)/pop(&l));
                 break;
 
             default:
@@ -118,4 +118,21 @@ void push(lista **cabeca, char x)
         plant->prox=pl;
     else
         *cabeca=pl;
+}
+
+int pop(lista **cabeca)
+{
+    lista *pl=*cabeca;
+    lista *plant=NULL;
+    char x;
+
+    while(pl->prox!=NULL)
+    {
+        plant=pl;
+        pl=pl->prox;
+    }
+    x = pl->c-'0';
+    plant->prox=NULL;
+    free(pl);
+    return x;
 }
