@@ -70,16 +70,15 @@ int main(void)
         switch (*pc)
         {
             case '+':
-                printf("+\n");
-                printf("%d\n",pop(*l)+pop(*l));
+                printf("+\n%d\n",pop(*l)+pop(*l));
                 break;
 
             case '-':
-                printf("-\n");
-                printf("%d",pop(*l)-pop(*l));
+                printf("-\n%d\n",pop(*l)-pop(*l));
                 break;
 
             case '*':
+                printf("*\n%d\n",pop(*l)*pop(*l));
                 break;
 
             case '/':
